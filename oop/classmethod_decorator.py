@@ -1,29 +1,21 @@
-class Student:
+import random
+
+class Hat:
+    houses = ["a", "b", "c"]
+
     def __init__(self, name, house):
         self.name = name
         self.house = house
 
-    def __str__(self):
-        return f"{self.name} {self.house}"
+    @classmethod
+    def get(cls):
+        name = input("enter name: ")
+        house = input("enter house: ")
+        return cls(name, house)
 
-    @property
-    def name(self):
-        return self.name
+    @classmethod
+    def sort(cls, name):
+        house = random.choice(cls.houses)
+        print(f"{name} is in {house}")
 
-    @name.setter
-    def mame(self, name):
-        if name not in ["a","b","c"]:
-            raise ValueError
-        return self.name
-
-def student_constructor():
-    name = input("name:  ")
-    house = input("name:  ")
-    return Student(name, house)
-
-def main():
-    student1 = student_constructor()
-    print(student1)
-
-if __name__ == "__main__":
-    main()
+    
